@@ -8,7 +8,7 @@
             @click="commands.bold"
             class="menubar__button"
           >
-            1
+            bold
           </button>
 
           <button
@@ -16,7 +16,7 @@
             @click="commands.italic"
             class="menubar__button"
           >
-            1
+            italic
           </button>
 
           <button
@@ -24,7 +24,7 @@
             @click="commands.strike"
             class="menubar__button"
           >
-            1
+            strike
           </button>
 
           <button
@@ -32,7 +32,7 @@
             @click="commands.underline"
             class="menubar__button"
           >
-            1
+            underline
           </button>
 
           <button
@@ -40,7 +40,7 @@
             @click="commands.code"
             class="menubar__button"
           >
-            1
+            code
           </button>
 
           <button
@@ -48,7 +48,7 @@
             @click="commands.paragraph"
             class="menubar__button"
           >
-            1
+            paragraph
           </button>
 
           <button
@@ -80,7 +80,7 @@
             @click="commands.bullet_list"
             class="menubar__button"
           >
-            1
+            bullet_list
           </button>
 
           <button
@@ -88,7 +88,7 @@
             @click="commands.ordered_list"
             class="menubar__button"
           >
-            1
+            ordered_list
           </button>
 
           <button
@@ -96,7 +96,7 @@
             @click="commands.blockquote"
             class="menubar__button"
           >
-            1
+            blockquote
           </button>
 
           <button
@@ -104,28 +104,28 @@
             @click="commands.code_block"
             class="menubar__button"
           >
-            1
+            code_block
           </button>
 
           <button
             @click="commands.horizontal_rule"
             class="menubar__button"
           >
-            1
+            horizontal_rule
           </button>
 
           <button
             @click="commands.undo"
             class="menubar__button"
           >
-            1
+            undo
           </button>
 
           <button
             @click="commands.redo"
             class="menubar__button"
           >
-            1
+            redo
           </button>
         </div>
       </editor-menu-bar>
@@ -186,30 +186,6 @@ export default {
       html: 'Update content to see changes'
     }
   },
-  methods: {
-    clearContent () {
-      this.editor.clearContent(true)
-      this.editor.focus()
-    },
-    setContent () {
-      // you can pass a json document
-      this.editor.setContent({
-        type: 'doc',
-        content: [{
-          type: 'paragraph',
-          content: [
-            {
-              type: 'text',
-              text: 'This is some inserted text. 👋'
-            }
-          ]
-        }]
-      }, true)
-      // HTML string is also supported
-      // this.editor.setContent('<p>This is some inserted text. 👋</p>')
-      this.editor.focus()
-    }
-  },
   mounted () {
     this.editor = new Editor({
       extensions: [
@@ -245,6 +221,30 @@ export default {
         this.html = getHTML()
       }
     })
+  },
+  methods: {
+    clearContent () {
+      this.editor.clearContent(true)
+      this.editor.focus()
+    },
+    setContent () {
+      // you can pass a json document
+      this.editor.setContent({
+        type: 'doc',
+        content: [{
+          type: 'paragraph',
+          content: [
+            {
+              type: 'text',
+              text: 'This is some inserted text. 👋'
+            }
+          ]
+        }]
+      }, true)
+      // HTML string is also supported
+      // this.editor.setContent('<p>This is some inserted text. 👋</p>')
+      this.editor.focus()
+    }
   }
 }
 </script>
